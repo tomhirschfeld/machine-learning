@@ -22244,7 +22244,7 @@ outliers that appear at least twice: [128, 154, 65, 66, 75]
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> Yes, there are five outliers such that one row is an outlier in two or more columns in the dataframe. The set of these can be seen in the code output above "outliers that appear at least twice". All of the rows that are an outlier on one or more columns should be removed. This is because if a row is an outlier on multiple features, it is likely that it has lower predictive power, and thus should not be used for training a model.</p>
+<p><strong>Answer:</strong> Yes, there are five outliers such that one row is an outlier in two or more features in the dataframe. The set of 5 of these can be seen in the code output above "outliers that appear at least twice". All of the rows that are an outlier on two or more features should be removed. This is because if a row is an outlier on multiple features, it is likely that it has lower predictive power, and thus should not be used for training a model.</p>
 
 </div>
 </div>
@@ -26757,8 +26757,8 @@ YII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>A customer assigned to cluster 1 should best identify with above average spending on detergents_paper, grocery, and milk, while also spending more money overall than customers in cluster 0. Cluster 1 is likely grocery stores, because grocery stores sell large amounts of food to many people.</p>
-<p>A customer assigned to cluster 0 should best indentify with above average spending on fresh ingredients, while below aveage spending on detergents_paper, and spending less overall money than customers in segment 1. Setment 0 likely corresponds with restaurants, which buy lots of fresh ingredients, and little else.</p>
+<p>A customer assigned to cluster 0 should best identify with above average spending on detergents_paper, grocery, and milk, while also spending more money overall than customers in cluster 1. Cluster 0 is likely grocery stores, because grocery stores sell large amounts of food to many people.</p>
+<p>A customer assigned to cluster 1 should best indentify with above average spending on fresh ingredients, while below aveage spending on detergents_paper, and spending less overall money than customers in segment 0. Setment 1 likely corresponds with restaurants, which buy lots of fresh ingredients, and little else.</p>
 
 </div>
 </div>
@@ -26811,7 +26811,7 @@ Sample point 2 predicted to be in Cluster 1
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong></p>
-<p>Sample 0 was noteable for an above average spend on fresh food, which is correlated with cluster 0, this is a correct categorization. Sample 1 was noted for above average spend in grocery/detergents_paper/delicatessen, which is associated with cluster 0. Sample 3 was notable for its below average spend on all categories, and higher (scaled to its other categories) spend on fresh foods. Sample 2 was hardest to predict, but it makes sense as a member of cluster 0.</p>
+<p>Sample 0 was noteable for an above average spend on fresh food, which is correlated with cluster 1, this is a correct categorization. Sample 1 was noted for above average spend in grocery/detergents_paper/delicatessen, which is associated with cluster 0. Sample 3 was notable for its below average spend on all categories, and higher (scaled to its other categories) spend on fresh foods. Sample 2 was hardest to predict, but it makes sense as a member of cluster 1.</p>
 
 </div>
 </div>
