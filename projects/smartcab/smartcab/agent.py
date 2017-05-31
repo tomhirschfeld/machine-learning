@@ -38,9 +38,9 @@ class LearningAgent(Agent):
         # Select the destination as the new location to route to
         self.planner.route_to(destination)
         self.t = self.t + 1;
-        if self.t > 250:
+        if self.t > 300:
             self.ti = self.ti + 1;
-            self.epsilon = math.pow(.95, (self.ti / 2));
+            self.epsilon = math.pow(.95, (self.ti / 3));
         ###########
         ## TO DO ##
         ###########
@@ -103,10 +103,10 @@ class LearningAgent(Agent):
         currentState = ''.join(state)
         if not (currentState in self.Q):
             self.Q[currentState] = {
-              'forward': -3,
-              'left': -3,
-              'right': -3,
-              'none': -3
+              'forward': 0,
+              'left': 0,
+              'right': 0,
+              'none': 0
             }
         return
 
@@ -124,7 +124,9 @@ class LearningAgent(Agent):
         action = random.choice(self.valid_actions)
         if self.learning and (random.random() >= self.epsilon):
             possibleActions = self.Q[''.join(state)]
-            action = max(possibleActions, key=possibleActions.get)
+            maxVal = max(possibleActions.values());
+            filteredDict = {k: v for k, v in possibleActions.items() if v == maxVal}
+            action = random.choice(filteredDict.keys())
             if action == 'none':
                 action = None;
         ###########
@@ -203,7 +205,7 @@ def run():
     #   display      - set to False to disable the GUI if PyGame is enabled
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
-    sim = Simulator(env, update_delay=0.001, log_metrics=True, display=False, optimized=True)
+    sim = Simulator(env, update_delay=0.0001, log_metrics=True, display=False, optimized=True)
 
     ##############
     # Run the simulator
